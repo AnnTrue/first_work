@@ -79,6 +79,10 @@ a {
   color: #FD8558;
 }
 
+.navigation__item {
+  color: #222222;
+}
+
 .hamburger-menu {
   display: none;
   position: absolute;
@@ -463,11 +467,11 @@ a {
   color: #F7F7F7;
 }
 
-.view-more {
+.button__view-more {
   width: 154px;
   height: 56px;
   margin-right: 120px;
-  z-index: 1;
+  z-index: 100;
 }
 
 .gallery__container {
@@ -993,6 +997,9 @@ a {
     flex-direction: column;
     margin-left: 5px;
     padding-top: 10px;
+  }
+  .button__view-more {
+    z-index: unset;
   }
 }
 
