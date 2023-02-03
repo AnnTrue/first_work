@@ -34,13 +34,13 @@
               </div>
               
             <nav class="navigation">
-                <a class="navigation__item" href="#1">demos</a>
-                <a class="navigation__item" href="#2">about us</a>
-                <a class="navigation__item" href="#3">portfolio</a>
-                <a class="navigation__item" href="#4">team</a>
-                <a class="navigation__item" href="#5">news</a>
-                <a class="navigation__item" href="#6">contact</a>
-                <a class="navigation__item" href="#7">other pages</a>
+                <a class="navigation__item" href="#click1">demos</a>
+                <a class="navigation__item" href="#click2">about us</a>
+                <a class="navigation__item" href="#click3">portfolio</a>
+                <a class="navigation__item" href="#click4">team</a>
+                <a class="navigation__item" href="#click5">news</a>
+                <a class="navigation__item" href="#click6">contact</a>
+                <a class="navigation__item" href="#click7" id="last_child">other pages</a>
             </nav>
             <div class="contacts">
                 +79564536767
@@ -117,12 +117,12 @@
                 </div>
             </div>
         </div>
-    </section>
-    <div class="decor">
+         <div class="decor">
         <div class="line"></div>
         <img class="decor__img" src="images/yelow.png" alt="">
         <div class="line"></div>
     </div>
+    </section>
     <section class="works" id="click3">
         <div class="works__wrapper">
             <div class="works__text">
@@ -171,7 +171,7 @@
             </div>
         </div>
     </section>
-    <section class="skills container">
+    <div class="skills container">
         <div class="skills__text">
             <div class="title">
                 OUR SKILLS
@@ -207,7 +207,7 @@
                 <div class="skills__procent">95%</div>
             </div>
         </div>
-    </section>
+    </div>
     <section class="team container" id="click4">
         <h3 class="title team__title">our team</h3>
         <p class="subtitle team__subtitle">Meet Our Awesome Team</p>
@@ -300,11 +300,11 @@
             </div>
             <form class="form" action="">
                 <div class="form__wrap">
-                    <input class="form__input" type="text" name="" id="" placeholder="Your name*">
-                    <input class="form__input" type="email" name="" id="" placeholder="Your e-mail*">
+                    <input class="form__input form__name" type="text" placeholder="Your name*">
+                    <input class="form__input form__email" type="email" placeholder="Your e-mail*">
                 </div>
-                <textarea class="form__message" name="" id="" cols="30" rows="10"
-                    placeholder="Your message*"></textarea>
+                <textarea class="form__message form__message" cols="30" rows="10"
+                    placeholder="Your message* (На русском языке и не более 10 символов)"></textarea>
                     <label><input type="checkbox" class="form__checkbox">I accept the user agreement</label>
                     <button class="button form__button">Send Message</button>
             </form>
@@ -346,4 +346,6 @@
     </footer>
     <script src="script.js"></script>
     <script src="scroll.js"></script>
+    <script src="button__desabled.js"></script>
+    <script src="form.js"></script>
 </html>
