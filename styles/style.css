@@ -18,6 +18,10 @@ body {
   background-color: #fff;
 }
 
+body.dark__theme {
+  background-color: #222222;
+}
+
 h1,
 h2,
 h3,
@@ -97,7 +101,25 @@ a {
   color: #222222;
 }
 
-/* если не задавать ширину хедеру то внутренний контейнер уходит влево */
+.header__theme {
+  display: flex;
+  height: 33px;
+  margin-top: 7px;
+}
+
+.header__theme:hover {
+  transform: scale(1.1);
+}
+
+.dark__theme .header {
+  background-color: #222222;
+  color: #FFFFFF;
+}
+
+.dark__theme .header__logo {
+  color: #FFFFFF;
+}
+
 .navigation {
   display: flex;
   align-items: center;
@@ -118,6 +140,24 @@ a {
 
 .navigation__item--active {
   color: #FD8558;
+}
+
+.dark__theme .navigation__item {
+  background-color: #222222;
+  color: #FFFFFF;
+}
+
+.dark__theme .navigation__item:hover {
+  color: #FD8558;
+}
+
+.dark__theme .navigation__item--active {
+  color: #FD8558;
+}
+
+.dark__theme .navigation {
+  background-color: #222222;
+  color: #FFFFFF;
 }
 
 .hamburger-menu {
@@ -201,6 +241,7 @@ a {
 
 .menu__item:hover {
   border: 2px solid #ff0dd7;
+  color: #FD8558;
 }
 
 #menu__toggle:checked ~ .menu__btn > span {
@@ -262,6 +303,11 @@ a {
   margin-top: -29px;
 }
 
+.dark__theme .header {
+  background-color: #222222;
+  color: #FFFFFF;
+}
+
 .buttons {
   display: flex;
   justify-content: center;
@@ -291,6 +337,10 @@ a {
 .button__disabled:hover {
   background-color: #333;
   color: #616161;
+}
+
+.dark__theme .button__disabled {
+  border: 2px solid #FD8558;
 }
 
 .button__secondary {
@@ -368,12 +418,10 @@ a {
 
 .about__text-container {
   width: 400px;
-  /* или можно сделать отступ через margin от какого-либо контейнера */
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   margin-left: 65px;
-  /* или можно сделать через margin */
 }
 
 .about__quote {
@@ -405,7 +453,10 @@ a {
   color: #CACACA;
 }
 
-/* solution */
+.dark__theme .about__quote {
+  color: #FFFFFF;
+}
+
 .solution {
   display: flex;
   justify-content: space-around;
@@ -819,6 +870,10 @@ a {
   line-height: 33px;
 }
 
+.dark__theme .news {
+  color: #FFFFFF;
+}
+
 .info__container {
   display: flex;
   justify-content: space-between;
@@ -847,6 +902,14 @@ a {
 
 .info__content {
   width: 293px;
+}
+
+.dark__theme .info__title {
+  color: #FFFFFF;
+}
+
+.dark__theme .info__paragrapf {
+  color: #FFFFFF;
 }
 
 .form {
@@ -882,6 +945,11 @@ a {
 .form__button {
   display: flex;
   margin-top: 65px;
+  border: 2px solid transparent;
+}
+
+.dark__theme .form {
+  color: #FFFFFF;
 }
 
 .footer {
@@ -955,6 +1023,14 @@ a {
 }
 
 @media (max-width: 1271px) {
+  .container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .header {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
   .team__block-title {
     font-size: 160px;
     text-align: center;
@@ -962,10 +1038,6 @@ a {
 }
 
 @media (max-width: 1024px) {
-  .container {
-    padding-left: 5px;
-    padding-right: 5px;
-  }
   .team__block-title {
     font-size: 100px;
   }
@@ -974,6 +1046,10 @@ a {
 @media (max-width: 990px) {
   .hamburger-menu {
     display: block;
+  }
+  .header__theme {
+    position: fixed;
+    right: 20px;
   }
   .navigation {
     display: none;

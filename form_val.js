@@ -16,8 +16,6 @@ checkbox.onclick = function disableButton() {
 };
 
 button.addEventListener("click", (event) => {
-  // event.preventDefault()
-
   function isEmailValid(value) {
     const EMAIL_REGEXP =
       /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
@@ -29,11 +27,12 @@ button.addEventListener("click", (event) => {
   let message = document.querySelector(".form__message").value;
 
   function isMessageValid(value) {
-    if (message.length > 10) {
+    if (message.length > 100) {
       return false;
     }
-
-    if (true) {
+    if (message.length === 0) {
+      return true;
+    } else {
       const cyrillicPattern = /^\p{Script=Cyrillic}+$/u;
       return cyrillicPattern.test(value);
     }

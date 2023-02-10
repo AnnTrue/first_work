@@ -27,6 +27,10 @@ body {
     background-color: #fff;
 }
 
+body.dark__theme {
+    background-color: #222222;
+}
+
 h1,
 h2,
 h3,
@@ -104,25 +108,26 @@ a {
         line-height: 45px;
         color: #222222;
     }
+
+    &__theme {
+        display: flex;
+        height: 33px;
+        margin-top: 7px;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
 }
 
-/* если не задавать ширину хедеру то внутренний контейнер уходит влево */
-// .header__container {
-//     display: flex;
-//     justify-content: space-between;
-//     width: 1060px;
-//     margin: 0 auto;
-//     /* margin: 0 auto; располагает контейнер по центру  */
-//     /* 1060 px задали определенную ширину контейнера, больше которой он не будет */
-// }
+.dark__theme .header {
+    background-color: #222222;
+    color: #FFFFFF;
+}
 
-// .header__logo {
-//     font-weight: 700;
-//     font-size: 28px;
-//     line-height: 45px;
-//     color: #222222;
-// }
-
+.dark__theme .header__logo {
+    color: #FFFFFF;
+}
 
 .navigation {
     display: flex;
@@ -139,12 +144,31 @@ a {
         &:hover {
             color: #FD8558;
         }
+
+        &--active {
+            color: #FD8558;
+        }
+    }
+
+
+}
+
+.dark__theme .navigation__item {
+    background-color: #222222;
+    color: #FFFFFF;
+
+    &:hover {
+        color: #FD8558;
+    }
+
     &--active {
         color: #FD8558;
     }
-    }
+}
 
-
+.dark__theme .navigation {
+    background-color: #222222;
+    color: #FFFFFF;
 }
 
 .hamburger-menu {
@@ -228,7 +252,7 @@ a {
 
 .menu__item:hover {
     border: 2px solid #ff0dd7;
-
+    color: #FD8558
 }
 
 #menu__toggle:checked~.menu__btn>span {
@@ -284,15 +308,16 @@ a {
         background-clip: text;
         -webkit-text-fill-color: transparent;
     }
+
     &-content {
         margin-top: -29px;
     }
 }
 
-// .disign-title {
-//     font-size: 70px;
-//     font-weight: 400;
-// }
+.dark__theme .header {
+    background-color: #222222;
+    color: #FFFFFF;
+}
 
 .buttons {
     display: flex;
@@ -323,6 +348,10 @@ a {
             color: #616161;
         }
     }
+}
+
+.dark__theme .button__disabled {
+    border: 2px solid #FD8558;
 }
 
 .button__secondary {
@@ -366,10 +395,6 @@ a {
     width: 430px;
 }
 
-// .about__title-ultimate {
-//     margin-top: 15px;
-// }
-
 .about__text-ultimate {
     padding-top: 25px;
     font-size: 40px;
@@ -404,12 +429,10 @@ a {
 
 .about__text-container {
     width: 400px;
-    /* или можно сделать отступ через margin от какого-либо контейнера */
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     margin-left: 65px;
-    /* или можно сделать через margin */
 }
 
 .about__quote {
@@ -441,7 +464,9 @@ a {
     }
 }
 
-/* solution */
+.dark__theme .about__quote {
+    color: #FFFFFF;
+}
 
 .solution {
     display: flex;
@@ -540,13 +565,6 @@ a {
         line-height: 38px;
     }
 
-    // &__button-title {
-    //     display: flex;
-    //     flex-direction: column;
-    //     align-items: flex-end;
-    //     margin-top: 50px;
-    // }
-
     &__grey-title {
         display: flex;
         justify-content: flex-end;
@@ -557,6 +575,7 @@ a {
 
     }
 }
+
 
 .button__view-more {
     width: 154px;
@@ -886,6 +905,10 @@ a {
 
 }
 
+.dark__theme .news {
+    color: #FFFFFF;
+}
+
 .info {
     &__container {
         display: flex;
@@ -920,6 +943,14 @@ a {
     }
 }
 
+.dark__theme .info__title {
+    color: #FFFFFF;
+}
+
+.dark__theme .info__paragrapf {
+    color: #FFFFFF;
+}
+
 .form {
     width: 705px;
 
@@ -952,7 +983,12 @@ a {
     &__button {
         display: flex;
         margin-top: 65px;
+        border: 2px solid transparent;
     }
+}
+
+.dark__theme .form {
+    color: #FFFFFF;
 }
 
 .footer {
@@ -1028,20 +1064,24 @@ a {
     }
 }
 
-// самое большое расширение написано в самом верху
 @media (max-width: 1271px) {
+    .container {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .header {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
     .team__block-title {
-font-size: 160px;
-text-align: center;
+        font-size: 160px;
+        text-align: center;
     }
 }
 
 @media (max-width: 1024px) {
-    .container {
-        padding-left: 5px;
-        padding-right: 5px;
-    }
-
     .team__block-title {
         font-size: 100px;
     }
@@ -1051,6 +1091,11 @@ text-align: center;
 @media (max-width: 990px) {
     .hamburger-menu {
         display: block;
+    }
+
+    .header__theme {
+        position: fixed;
+        right: 20px;
     }
 
     .navigation {
@@ -1147,7 +1192,6 @@ text-align: center;
 @media (max-width: 480px) {
     .header__container {
         flex-direction: column;
-        // justify-content: center;
         align-items: center;
         gap: 0;
     }
