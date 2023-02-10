@@ -367,6 +367,10 @@ a {
   color: #333333;
 }
 
+.dark__theme .subtitle {
+  color: #ababab;
+}
+
 .about__title {
   font-weight: 400;
   font-size: 150px;
