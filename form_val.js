@@ -4,6 +4,7 @@ let button = document.querySelector(".form__button");
 let checkbox = document.querySelector(".form__checkbox");
 
 button.classList.add("button__disabled");
+button.setAttribute("disabled", true);
 
 checkbox.onclick = function disableButton() {
   if (checkbox.checked) {
@@ -38,7 +39,18 @@ button.addEventListener("click", (event) => {
     }
   }
 
-  if (name.length && isEmailValid(email) && isMessageValid(message)) {
+  function isNameValid(value) {
+    const cyrillicPattern = /^\p{Script=Cyrillic}+$/u;
+    return cyrillicPattern.test(value);
+  }
+
+  if (
+    name.length &&
+    isEmailValid(email) &&
+    isMessageValid(message) &&
+    email.length &&
+    isNameValid(name)
+  ) {
     button.classList.remove("button__disabled");
     button.removeAttribute("disabled");
   } else {
@@ -47,12 +59,30 @@ button.addEventListener("click", (event) => {
 
     checkbox.checked = false;
 
-    let div = document.createElement("div");
-    div.className = "alert";
-    div.innerHTML =
-      "<strong>Внимание!</strong> Вы не ввели данные или ввели их неверно.";
+    if (!name.length || !email.length) {
+      let div = document.createElement("div");
+      div.className = "alert";
+      div.innerHTML = "<strong>Внимание!</strong> Вы не ввели имя или email.";
+      
+      document.body.append(div);
+    }
 
-    document.body.append(div);
+    if (!isEmailValid(email) && email.length) {
+      let div = document.createElement("div");
+      div.className = "alert";
+      div.innerHTML = "<strong>Внимание!</strong> Вы ввели email неверно.";
+
+      document.body.append(div);
+    }
+
+    if (!isNameValid(name) && name.length) {
+      let div = document.createElement("div");
+      div.className = "alert";
+      div.innerHTML =
+        "<strong>Внимание!</strong> Вы ввели имя неверно, используйте только русские буквы.";
+
+      document.body.append(div);
+    }
 
     let time = setTimeout(() => {
       let modal = document.querySelector(".alert");
