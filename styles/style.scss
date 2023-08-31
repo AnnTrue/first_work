@@ -609,7 +609,7 @@ a {
         height: 720px;
         padding: 20px;
         background-size: cover;
-        background-image: url(../images/house1.png);
+        background-image: url(../images/house.png);
     }
 
     &__check-cont {
@@ -622,6 +622,76 @@ a {
         font-size: 24px;
         line-height: 33px;
         background-color: rgba(255, 255, 255, 0.85);
+    }
+
+    input[type="checkbox"]:checked,
+    input[type="checkbox"]:not(:checked) {
+        position: absolute;
+        left: -9999px;
+    }
+
+    input[type="checkbox"]:checked+label,
+    input[type="checkbox"]:not(:checked)+label {
+        display: inline-block;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        line-height: 55px;
+        cursor: pointer;
+    }
+
+    input[type="checkbox"]:checked+label:before,
+    input[type="checkbox"]:not(:checked)+label:before {
+    content: "";
+    position: absolute;
+    right: 0px;
+    top: 0;
+    width: 46px;
+    height: 46px;
+    border: 2px solid #222222;
+    background-color: #ffffff;
+    }
+
+    input[type="checkbox"]:disabled+label::before {
+        background-color: #CDCDCD;
+    }
+
+    input[type="checkbox"]:checked:disabled+label:before {
+        background-color: #CDCDCD;
+    }
+
+    input[type="checkbox"]:checked+label:after,
+    input[type="checkbox"]:not(:checked)+label:after {
+        content: "";
+        position: absolute;
+        -webkit-transition: all 0.2s ease;
+        -moz-transition: all 0.2s ease;
+        -o-transition: all 0.2s ease;
+        transition: all 0.2s ease;
+    }
+
+    input[type="checkbox"]:checked+label:after,
+    input[type="checkbox"]:not(:checked)+label:after {
+        right: 8px;
+        top: 10px;
+        width: 28px;
+        height: 17px;
+        border-radius: 1px;
+        border-left: 7px solid #797979;
+        border-bottom: 7px solid #797979;
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+    }
+
+    input[type="checkbox"]:not(:checked)+label:after {
+        opacity: 0;
+    }
+
+    input[type="checkbox"]:checked+label:after {
+        opacity: 1;
     }
 }
 
@@ -967,6 +1037,7 @@ a {
     &__input {
         width: 100%;
         padding: 18px 0 18px 40px;
+        border: 1px solid #EEEEEE;
 
         &::placeholder {
             color: #999;
@@ -979,6 +1050,7 @@ a {
         height: 128px;
         padding: 18px 0 18px 40px;
         resize: none;
+        border: 1px solid #EEEEEE;
 
         &::placeholder {
             color: #999;
@@ -998,6 +1070,7 @@ a {
 
 .footer {
     margin-top: 120px;
+    max-width: 100%;
     height: 100%;
     background-color: black;
     color: white;
@@ -1005,6 +1078,8 @@ a {
     &__blocks {
         display: flex;
         justify-content: space-around;
+        max-width: 1400px;
+        margin: 0 auto;
         padding-top: 120px;
         flex-wrap: wrap;
 
@@ -1068,6 +1143,12 @@ a {
         }
     }
 }
+@media (max-width: 1400px) {
+    .gallery__check-cont {
+        padding: 40px 10px;
+    }
+    
+}
 
 @media (max-width: 1271px) {
     .container {
@@ -1084,6 +1165,36 @@ a {
         font-size: 160px;
         text-align: center;
     }
+    .gallery {
+        &__check-cont {
+            padding: 40px 3px;
+        }
+
+        &__img-main {
+            width: 50%;
+        }
+
+    input[type="checkbox"]:checked+label:before,
+    input[type="checkbox"]:not(:checked)+label:before {
+    content: "";
+    top: 10px;
+    width: 25px;
+    height: 25px;
+    }
+
+
+    input[type="checkbox"]:checked+label:after,
+    input[type="checkbox"]:not(:checked)+label:after {
+        right: 5px;
+        top: 17px;
+        width: 15px;
+        height: 7px;
+        border-left: 5px solid #797979;
+        border-bottom: 5px solid #797979;
+    }
+
+}
+    
 }
 
 @media (max-width: 1024px) {
@@ -1153,38 +1264,75 @@ a {
     .about__office-container {
         justify-content: flex-start;
     }
+    
+    .solution {
+        margin-top: 50px;
+    }
 
-    .works__text {
+    .works {
+        margin-top: 50px;
+
+        &__wrapper{
+            height: 110px;
+        }
+
+    &__text {
         flex-wrap: wrap;
         margin-left: 5px;
         gap: 10px;
 
     }
+}
 
     .works__grey-title {
         display: none;
     }
 
-    .gallery__container {
-        flex-wrap: wrap;
-    }
+    .gallery {
+        &__container {
+            flex-wrap: wrap;
+        }
 
-    .gallery__aside-container {
+        &__check-cont {
+            padding: 40px 40px;
+        }
+
+        &__img-main {
+            width: 100%;
+        }
+
+    &__aside-container {
         width: 100%;
 
     }
+}
 
     .skills {
         flex-wrap: wrap;
     }
 
-    .team__block-title {
+    .team {
+        margin-top: 50px;
+
+    &__block-title {
         font-size: 60px;
     }
 
+    &__button {
+        margin-bottom: 0;
+    }
+
+    &__block {
+        margin-bottom: 50px;
+    }
+}
+.info__container {
+    margin-top: 50px;
+}
+
     .footer__blocks {
         flex-direction: column;
-        margin-left: 5px;
+        margin-left: 20px;
         padding-top: 10px;
     }
 

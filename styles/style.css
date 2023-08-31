@@ -590,7 +590,7 @@ a {
   height: 720px;
   padding: 20px;
   background-size: cover;
-  background-image: url(../images/house1.png);
+  background-image: url(../images/house.png);
 }
 
 .gallery__check-cont {
@@ -604,6 +604,76 @@ a {
   font-size: 24px;
   line-height: 33px;
   background-color: rgba(255, 255, 255, 0.85);
+}
+
+.gallery input[type="checkbox"]:checked,
+.gallery input[type="checkbox"]:not(:checked) {
+  position: absolute;
+  left: -9999px;
+}
+
+.gallery input[type="checkbox"]:checked + label,
+.gallery input[type="checkbox"]:not(:checked) + label {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  line-height: 55px;
+  cursor: pointer;
+}
+
+.gallery input[type="checkbox"]:checked + label:before,
+.gallery input[type="checkbox"]:not(:checked) + label:before {
+  content: "";
+  position: absolute;
+  right: 0px;
+  top: 0;
+  width: 46px;
+  height: 46px;
+  border: 2px solid #222222;
+  background-color: #ffffff;
+}
+
+.gallery input[type="checkbox"]:disabled + label::before {
+  background-color: #CDCDCD;
+}
+
+.gallery input[type="checkbox"]:checked:disabled + label:before {
+  background-color: #CDCDCD;
+}
+
+.gallery input[type="checkbox"]:checked + label:after,
+.gallery input[type="checkbox"]:not(:checked) + label:after {
+  content: "";
+  position: absolute;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.gallery input[type="checkbox"]:checked + label:after,
+.gallery input[type="checkbox"]:not(:checked) + label:after {
+  right: 8px;
+  top: 10px;
+  width: 28px;
+  height: 17px;
+  border-radius: 1px;
+  border-left: 7px solid #797979;
+  border-bottom: 7px solid #797979;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.gallery input[type="checkbox"]:not(:checked) + label:after {
+  opacity: 0;
+}
+
+.gallery input[type="checkbox"]:checked + label:after {
+  opacity: 1;
 }
 
 .bag {
@@ -928,6 +998,7 @@ a {
 .form__input {
   width: 100%;
   padding: 18px 0 18px 40px;
+  border: 1px solid #EEEEEE;
 }
 
 .form__input::placeholder {
@@ -940,6 +1011,7 @@ a {
   height: 128px;
   padding: 18px 0 18px 40px;
   resize: none;
+  border: 1px solid #EEEEEE;
 }
 
 .form__message::placeholder {
@@ -958,6 +1030,7 @@ a {
 
 .footer {
   margin-top: 120px;
+  max-width: 100%;
   height: 100%;
   background-color: black;
   color: white;
@@ -966,6 +1039,8 @@ a {
 .footer__blocks {
   display: flex;
   justify-content: space-around;
+  max-width: 1400px;
+  margin: 0 auto;
   padding-top: 120px;
   flex-wrap: wrap;
 }
@@ -1026,6 +1101,12 @@ a {
   color: #FFFFFF;
 }
 
+@media (max-width: 1400px) {
+  .gallery__check-cont {
+    padding: 40px 10px;
+  }
+}
+
 @media (max-width: 1271px) {
   .container {
     padding-left: 10px;
@@ -1038,6 +1119,28 @@ a {
   .team__block-title {
     font-size: 160px;
     text-align: center;
+  }
+  .gallery__check-cont {
+    padding: 40px 3px;
+  }
+  .gallery__img-main {
+    width: 50%;
+  }
+  .gallery input[type="checkbox"]:checked + label:before,
+  .gallery input[type="checkbox"]:not(:checked) + label:before {
+    content: "";
+    top: 10px;
+    width: 25px;
+    height: 25px;
+  }
+  .gallery input[type="checkbox"]:checked + label:after,
+  .gallery input[type="checkbox"]:not(:checked) + label:after {
+    right: 5px;
+    top: 17px;
+    width: 15px;
+    height: 7px;
+    border-left: 5px solid #797979;
+    border-bottom: 5px solid #797979;
   }
 }
 
@@ -1096,6 +1199,15 @@ a {
   .about__office-container {
     justify-content: flex-start;
   }
+  .solution {
+    margin-top: 50px;
+  }
+  .works {
+    margin-top: 50px;
+  }
+  .works__wrapper {
+    height: 110px;
+  }
   .works__text {
     flex-wrap: wrap;
     margin-left: 5px;
@@ -1107,18 +1219,36 @@ a {
   .gallery__container {
     flex-wrap: wrap;
   }
+  .gallery__check-cont {
+    padding: 40px 40px;
+  }
+  .gallery__img-main {
+    width: 100%;
+  }
   .gallery__aside-container {
     width: 100%;
   }
   .skills {
     flex-wrap: wrap;
   }
+  .team {
+    margin-top: 50px;
+  }
   .team__block-title {
     font-size: 60px;
   }
+  .team__button {
+    margin-bottom: 0;
+  }
+  .team__block {
+    margin-bottom: 50px;
+  }
+  .info__container {
+    margin-top: 50px;
+  }
   .footer__blocks {
     flex-direction: column;
-    margin-left: 5px;
+    margin-left: 20px;
     padding-top: 10px;
   }
   .button__view-more {
